@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenericsSample {
 
@@ -13,65 +9,63 @@ namespace GenericsSample {
 
         public Decimal? Decimal { get; set; }
 
-        public void OutPut() {
+        public void Main() {
 
+            Console.WriteLine("Pattern1");
+            Pattern1();
+
+            Console.WriteLine("Pattern2");
+            Pattern2();
+
+            Console.WriteLine("Pattern3");
+            Pattern3();
+        }
+
+        private void Pattern1() {
             Int = null;
             Long = null;
             Decimal = null;
 
-            /// null許容型のintをintへ変換
-            var result1 = Convert<int?, int>(Int);
-            ///  null許容型のlongをlongへ変換
-            var result2 = Convert<long?, long>(Long);
-            ///  null許容型のDecimalをDecimalへ変換
-            var result3 = Convert<Decimal?, Decimal>(Decimal);
+            var result_1_1 = Convert<int?, int>(Int);
+            var result_1_2 = Convert<long?, long>(Long);
+            var result_1_3 = Convert<Decimal?, Decimal>(Decimal);
 
-            Console.WriteLine("パターン1");
-            Console.WriteLine("result1");
-            WriteData(result1);
-            Console.WriteLine("result2");
-            WriteData(result2);
-            Console.WriteLine("result3");
-            WriteData(result3);
+            WriteData(result_1_1);
+            WriteData(result_1_2);
+            WriteData(result_1_3);
+        }
 
-            ///  null許容型のintをDecimalへ変換
-            var result4 = Convert<int?, Decimal>(Int);
-            ///  null許容型のlongをintへ変換
-            var result5 = Convert<long?, int>(Long);
-            ///  null許容型のDecimalをintへ変換
-            var result6 = Convert<Decimal?, int>(Decimal);
+        private void Pattern2() {
+            Int = null;
+            Long = null;
+            Decimal = null;
 
-            Console.WriteLine("パターン2");
-            Console.WriteLine("result4");
-            WriteData(result4);
-            Console.WriteLine("result5");
-            WriteData(result5);
-            Console.WriteLine("result6");
-            WriteData(result6);
+            var result_2_1 = Convert<int?, Decimal>(Int);
+            var result_2_2 = Convert<long?, int>(Long);
+            var result_2_3 = Convert<Decimal?, int>(Decimal);
 
-            // int の最大値は	2147483647
+            WriteData(result_2_1);
+            WriteData(result_2_2);
+            WriteData(result_2_3);
+        }
+
+        private void Pattern3() {
             Int = 2147483647;
             Long = 2147483648;
             Decimal = 1000;
 
-            /// null許容型のintをintへ変換
-            var result7 = Convert<int?, int>(Int);
-            ///  null許容型のlongをlongへ変換
-            var result8 = Convert<long?, long>(Long);
-            ///  null許容型のDecimalをDecimalへ変換
-            var result9 = Convert<Decimal?, Decimal>(Decimal);
+            var result_3_1 = Convert<int?, int>(Int);
+            var result_3_2 = Convert<long?, long>(Long);
+            var result_3_3 = Convert<Decimal?, Decimal>(Decimal);
 
-            Console.WriteLine("パターン3");
-            Console.WriteLine("result7");
-            WriteData(result7);
-            Console.WriteLine("result8");
-            WriteData(result8);
-            Console.WriteLine("result9");
-            WriteData(result9);
+            WriteData(result_3_1);
+            WriteData(result_3_2);
+            WriteData(result_3_3);
         }
 
         private void WriteData(object data) {
-            Console.WriteLine("Type: " + data.GetType() + " Value: " + data.ToString());
+            Console.WriteLine("Type : " + data.GetType());
+            Console.WriteLine("Value: " + data.ToString());
             Console.WriteLine();
         }
 

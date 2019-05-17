@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenericsSample {
     class Program {
         static void Main(string[] args) {
-            new Sample1().OutPut();
-            new Sample2().OutPut();
-            new Sample3().OutPut();
+
+            Console.WriteLine("Sample1");
+            new Sample1().Main();
+
+            Console.WriteLine("Sample2");
+            new Sample2().Main();
+
+            Console.WriteLine("Sample3");
+            new Sample3().Main();
 
             Console.ReadKey();
         }
